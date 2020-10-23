@@ -1,0 +1,12 @@
+Some ideas on improving the site that I may or may not implement in the
+future:
+
+* Fill in the "about me" page
+* Flesh out the home page with fuller content
+* Add personal logo
+* Add custom font for H1s
+* Deploy to github pages
+  * Change `_site` to `docs`?
+* Consider github comments on posts
+* Add links to github, linkedin, twitter, etc in footer
+* Make responsive for small screens
