@@ -1,14 +1,13 @@
 ---
-bgColor: bg-teal-700
+bgColor: bg-teal-800
 ---
 {% extends 'layouts/base.njk' %}
-{% set section = 'blog' %}
 
 {% block sidebar %}
   <p class="text-sm">
     <time datetime="{{ date | dateISO }}">{{ date | dateDisplay }}</time>
   </p>
-  <h1>{{ title }}</h1>
+  <h1>{{ title | widont | safe }}</h1>
 {% endblock %}
 
 {% block content %}

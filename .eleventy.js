@@ -37,6 +37,10 @@ module.exports = function (eleventyConfig) {
     return Math.min.apply(null, numbers);
   });
 
+  eleventyConfig.addFilter("widont", (str) => {
+    return str.replace(/\s(?=[^\s]*$)/g, "&nbsp;");
+  });
+
   eleventyConfig.addCollection("tagList", function (collection) {
     let tagSet = new Set();
     collection.getAll().forEach(function (item) {

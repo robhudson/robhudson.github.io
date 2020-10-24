@@ -26,7 +26,7 @@
           <div class="max-w-full mt-16 pb-4">
             {% block sidebar %}
               <h1>
-                <a href="{{ '/' | url }}">{{ metadata.title }}</a>
+                <a href="{{ '/' | url }}">{{ metadata.title | widont | safe }}</a>
               </h1>
               <span class="text-sm">by {{ metadata.author.name }}</span>
             {% endblock %}
