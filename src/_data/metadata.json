@@ -2,6 +2,7 @@
   "title": "Cogitations",
   "url": "https://example.com/",
   "description": "I am writing about my experiences as a naval navel-gazer.",
+  "bgColor": "bg-green-900",
   "feed": {
     "subtitle": "I am writing about my experiences as a naval navel-gazer.",
     "filename": "feed.xml",

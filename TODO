@@ -7,7 +7,6 @@ future:
 * Deploy to github pages
   * Change `_site` to `docs`?
 * Consider github comments on posts
-* Make responsive for small screens
 * Style /tags pages
 * Style tags as chips
 * generate 404.html from layout templates?

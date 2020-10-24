@@ -11,11 +11,11 @@
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
   </head>
-  <body class="flex flex-row">
+  <body class="lg:flex lg:flex-row">
     <!-- sidebar -->
-    <div class="w-2/5 min-h-screen bg-green-900 {{ bgColor }} text-gray-300">
+    <div class="lg:w-2/5 lg:min-h-screen {{ bgColor or metadata.bgColor }} text-gray-300">
       <header class="sticky top-0">
-        <div class="w-3/5 max-w-screen-sm ml-auto mr-12 text-left">
+        <div class="w-3/4 lg:w-3/5 max-w-screen-sm ml-auto mr-auto lg:mr-12 text-left">
           <ul class="font-bold text-sm">
             {%- for entry in collections.all | eleventyNavigation %}
               <li class="inline">
@@ -36,8 +36,8 @@
     </div>
 
     <!-- main -->
-    <main class="w-3/5">
-      <div class="ml-16 py-16 max-w-screen-sm mr-auto">
+    <main class="lg:w-3/5">
+      <div class="max-w-screen-sm lg:ml-16 mr-auto ml-auto py-16">
         {% block content %}
           {{ content | safe }}
         {% endblock %}
@@ -45,9 +45,9 @@
     </main>
 
     <!-- footer -->
-    <footer class="w-2/5 fixed bottom-0 left-0 text-gray-300">
+    <footer class="lg:w-2/5 lg:fixed lg:bottom-0 lg:left-0 {{ bgColor or metadata.bgColor }} text-gray-300">
       <div class="py-8">
-        <div class="w-3/5 max-w-screen-sm ml-auto mr-12 text-left">
+        <div class="max-w-screen-sm lg:w-3/5 ml-auto lg:mr-16 mr-auto text-left">
           {% block prefooter %}{% endblock %}
           <div class="flex flex-col">
             <div class="inline-flex p-3">
