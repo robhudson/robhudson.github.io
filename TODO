@@ -9,3 +9,6 @@ future:
 * Consider github comments on posts
 * Add links to github, linkedin, twitter, etc in footer
 * Make responsive for small screens
+* Style /tags pages
+* Style tags as chips
+* generate 404.html from layout templates?

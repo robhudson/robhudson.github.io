@@ -1,5 +1,12 @@
 ---
-layout: layouts/base.njk
 templateClass: tmpl-home
 ---
-{{ content | safe }}
+{% extends 'layouts/base.njk' %}
+
+{% block sidebar %}
+  <h1>{{ title }}</h1>
+{% endblock %}
+
+{% block content %}
+  {{ content | safe }}
+{% endblock %}

@@ -1,13 +1,17 @@
 ---
-layout: layouts/home.njk
 permalink: /posts/
 eleventyNavigation:
-  key: Blog
+  key: Posts
   order: 2
 bgColor: bg-teal-700
 ---
+{% extends 'layouts/base.njk' %}
 
-<h1>Archive</h1>
+{% block sidebar %}
+  <h1>Posts Archive</h1>
+{% endblock %}
 
-{% set postslist = collections.posts %}
-{% include "postslist.njk" %}
+{% block content %}
+  {% set postslist = collections.posts %}
+  {% include 'postslist.njk' %}
+{% endblock %}

@@ -10,14 +10,19 @@ pagination:
     - posts
     - tagList
   addAllPagesToCollections: true
-layout: layouts/home.njk
 eleventyComputed:
   title: Tagged “{{ tag }}”
 permalink: /tags/{{ tag }}/
 ---
-<h1>Tagged “{{ tag }}”</h1>
+{% extends 'layouts/base.njk' %}
 
-{% set postslist = collections[ tag ] %}
-{% include "postslist.njk" %}
+{% block sidebar %}
+  <h1>{{ title | widont | safe }}</h1>
+{% endblock %}
 
-<p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+{% block content %}
+  {% set postslist = collections[ tag ] %}
+  {% include "postslist.njk" %}
+
+  <p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+{% endblock %}
