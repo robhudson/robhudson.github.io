@@ -10,7 +10,11 @@ module.exports = {
     },
   },
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'heading': ['Anton', 'sans-serif'],
+      }
+    },
   },
   variants: {},
   plugins: [
