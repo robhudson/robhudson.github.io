@@ -10,3 +10,4 @@ future:
 * Style /tags pages
 * Style tags as chips
 * generate 404.html from layout templates?
+* Get post detail pages to set active navigation

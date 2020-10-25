@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 { @apply font-heading text-5xl; }
-h2 { @apply text-2xl font-bold; }
-h3 { @apply text-xl font-bold; }
+h1 {
+  @apply font-heading text-5xl;
+}
+h2 {
+  @apply text-2xl font-bold;
+}
+h3 {
+  @apply text-xl font-bold;
+}
