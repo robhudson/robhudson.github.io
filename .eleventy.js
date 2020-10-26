@@ -35,7 +35,10 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("widont", (str) => {
-    return str.replace(/\s(?=[^\s]*$)/g, "&nbsp;");
+    if (str.split(" ").length > 2) {
+      return str.replace(/\s(?=[^\s]*$)/g, "&nbsp;");
+    }
+    return str;
   });
 
   eleventyConfig.addCollection("tagList", function (collection) {
