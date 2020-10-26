@@ -8,5 +8,5 @@ future:
   * Change `_site` to `docs`?
 * Consider github comments on posts
 * Style /tags pages
-* Style tags as chips
 * generate 404.html from layout templates?
+* Add 11ty plugin reading time

@@ -1,14 +1,18 @@
-<ol reversed class="postlist" style="counter-reset: start-from {{ (postslistCounter or postslist.length) + 1 }}">
 {% for post in postslist | reverse %}
-  <li>
-    <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    <time datetime="{{ post.date | dateISO }}">{{ post.date | dateDisplay }}</time>
-    {% for tag in post.data.tags %}
-      {%- if collections.tagList.indexOf(tag) != -1 -%}
-      {% set tagUrl %}/tags/{{ tag }}/{% endset %}
-      <a href="{{ tagUrl | url }}">{{ tag }}</a>
-      {%- endif -%}
-    {% endfor %}
-  </li>
+  <div class="mt-4">
+    <p class="text-gray-600">
+      <time datetime="{{ post.date | dateISO }}">{{ post.date | dateDisplay }}</time>
+    </p>
+    <h3>
+      <a class="underline" href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
+    </h3>
+    <div>
+      {% for tag in post.data.tags %}
+        {%- if collections.tagList.indexOf(tag) != -1 -%}
+          {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+          <a class="text-teal-800" href="{{ tagUrl | url }}">#{{ tag }}</a>
+        {%- endif -%}
+      {% endfor %}
+    </div>
+  </div>
 {% endfor %}
-</ol>
