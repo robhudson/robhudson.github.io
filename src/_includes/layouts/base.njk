@@ -56,10 +56,10 @@
       <div class="py-8 px-4 lg:px-0">
         <div class="max-w-screen-sm lg:w-3/5 ml-auto lg:mr-16 mr-auto text-left">
           {% block prefooter %}{% endblock %}
-          <div class="flex flex-col">
-            <div class="inline-flex p-3">
+          <div class="">
+            <div class="flex justify-between">
             {% for social in metadata.social %}
-              <a class="flex-grow inline-flex items-center space-x-2" href="{{ social.href }}">
+              <a class="items-center" href="{{ social.href }}">
                 {{ social.icon | safe }}
                 <span>{{ social.name }}</span>
               </a>
