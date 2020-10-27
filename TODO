@@ -9,4 +9,3 @@ future:
 * Consider github comments on posts
 * Style /tags pages
 * generate 404.html from layout templates?
-* Add 11ty plugin reading time

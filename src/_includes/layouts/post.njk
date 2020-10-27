@@ -9,6 +9,7 @@ bgPattern: bg-circuit
     <time datetime="{{ date | dateISO }}">{{ date | dateDisplay }}</time>
   </p>
   <h1>{{ title | widont | safe }}</h1>
+  <p class="text-sm">Reading time: {{ content | readingTime }}</p>
 {% endblock %}
 
 {% block content %}
