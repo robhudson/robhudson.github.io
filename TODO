@@ -4,8 +4,6 @@ future:
 * Fill in the "about me" page
 * Flesh out the home page with fuller content
 * Add personal logo
-* Deploy to github pages
-  * Change `_site` to `docs`?
 * Consider github comments on posts
 * Style /tags pages
 * generate 404.html from layout templates?
