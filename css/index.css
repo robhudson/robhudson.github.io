@@ -544,10 +544,22 @@ svg {
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
+.bg-green-900 {
+  --bg-opacity: 1;
+  background-color: #22543d;
+  background-color: rgba(34, 84, 61, var(--bg-opacity));
+}
+
 .bg-teal-800 {
   --bg-opacity: 1;
   background-color: #285e61;
   background-color: rgba(40, 94, 97, var(--bg-opacity));
+}
+
+.bg-blue-800 {
+  --bg-opacity: 1;
+  background-color: #2c5282;
+  background-color: rgba(44, 82, 130, var(--bg-opacity));
 }
 
 .hover\:bg-gray-500:hover {
