@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'heading': ['Anton', 'sans-serif'],
+        'heading': ['Fira Sans', 'sans-serif'],
       }
     },
   },
