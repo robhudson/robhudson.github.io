@@ -14,7 +14,7 @@
   <body class="lg:flex lg:flex-row">
 
     <!-- sidebar -->
-    <div class="lg:w-2/5 lg:min-h-screen {{ bgColor or metadata.bgColor }} text-gray-300">
+    <div class="lg:w-2/5 lg:min-h-screen {{ bgColor or metadata.bgColor }} text-gray-300 {{ bgPattern or metadata.bgPattern }}">
       <header class="sticky top-0">
         <div class="w-3/4 lg:w-3/5 max-w-screen-sm ml-auto mr-auto lg:mr-12 text-left">
           <ul class="font-bold text-sm">
@@ -52,7 +52,7 @@
     </main>
 
     <!-- footer -->
-    <footer class="lg:w-2/5 lg:fixed lg:bottom-0 lg:left-0 {{ bgColor or metadata.bgColor }} text-gray-300">
+    <footer class="lg:w-2/5 lg:fixed lg:bottom-0 lg:left-0 {{ bgColor or metadata.bgColor }} text-gray-300 lg:border-gray-300 lg:border-t-2">
       <div class="py-8 px-4 lg:px-0">
         <div class="max-w-screen-sm lg:w-3/5 ml-auto lg:mr-16 mr-auto text-left">
           {% block prefooter %}{% endblock %}
