@@ -3,7 +3,7 @@
   "version": "5.0.2",
   "description": "A starter repository for a blog web site using the Eleventy static site generator.",
   "scripts": {
-    "build": "npm-run-all clean build:css build:html",
+    "build": "NODE_ENV=production npm-run-all clean --parallel build:css build:html",
     "build:css": "postcss src/css/index.css -o _site/css/index.css",
     "build:html": "eleventy",
     "watch": "npm-run-all --parallel watch:css watch:html",
