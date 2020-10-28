@@ -1,23 +1,23 @@
 {
   "title": "Cogitations of Rob Hudson",
-  "url": "https://example.com/",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "url": "https://rob.cogit8.org/",
+  "description": "I am writing about my experiences as a software and web engineer.",
   "bgColor": "bg-green-900",
   "bgPattern": "bg-autumn",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "I am writing about my experiences as a software and web engineer.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https://rob.cogit8.org/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://rob.cogit8.org/feed/feed.json"
   },
   "author": {
     "name": "Rob Hudson",
     "email": "rob@cogit8.org",
-    "url": "https://example.com/about-me/"
+    "url": "https://rob.cogit8.org/about/"
   },
   "social": [
     {
