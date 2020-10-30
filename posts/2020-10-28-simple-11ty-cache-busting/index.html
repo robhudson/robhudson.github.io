@@ -38,9 +38,11 @@
   <div class="my-4">
     <p>Tagged:</p>
     <ul class="pl-4">
+          <li><a href="/tags/11ty/">#11ty</a></li>
+          <li><a href="/tags/caching/">#caching</a></li>
     </ul>
   </div>
-  <p class="text-sm">Reading time: 1 min</p>
+  <p class="text-sm">Reading time: 2 min</p>
 
           </div>
         </div>
@@ -53,8 +55,37 @@
         
 
   <article class="prose">
-    <pre class="language-js"><code class="language-js">eleventyConfig<span class="token punctuation">.</span><span class="token function">addFilter</span><span class="token punctuation">(</span><span class="token string">"bust"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>urlPart<span class="token punctuation">,</span> paramPart<span class="token punctuation">]</span> <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>paramPart <span class="token operator">||</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  params<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span> DateTime<span class="token punctuation">.</span><span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFormat</span><span class="token punctuation">(</span><span class="token string">"X"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>urlPart<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>params<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre class="language-html"><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/css/index.css?v=1604093214<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+    <p>This post details my quick hack to override the caching of Github Pages<br>
+static assets after a deploy.</p>
+<h2 id="static-asset-caching">Static asset caching <a class="header-anchor" href="#static-asset-caching">#</a></h2>
+<p>When a browser requests a resource (e.g. <code>style.css</code>), the server can tell<br>
+the browser how long to cache that resource so that subsequent requests for<br>
+that same resource can load from a local copy rather than fetch it from the<br>
+server again.</p>
+<p>For Github Pages, this time is 10 minutes.</p>
+<h2 id="the-problem">The problem <a class="header-anchor" href="#the-problem">#</a></h2>
+<p>When I deploy this website a new <code>css/index.css</code> file is created with any of<br>
+my CSS changes that I have made. If I, or any other visitor, request the<br>
+website within that 10 minute window, they will get the old CSS rather than<br>
+the new one, possibly breaking my intended layout or design.</p>
+<h2 id="the-solution">The solution <a class="header-anchor" href="#the-solution">#</a></h2>
+<p>There are many ways to solve this problem. I went for the most minimal<br>
+solution that I could think of to work with Github Pages.</p>
+<p>One way to force the browser to fetch a fresh copy is to add a query<br>
+parameter to the URL that it hsan't seen before. For cache busting a common<br>
+approach is to include a timestamp or epoch time to the URL when the resource<br>
+is updated. This is exactly what I have done here for my CSS.</p>
+<p>Editing my <code>.eleventy.js</code> configuration I added a <code>bust</code> filter that will<br>
+computer the current time, via Luxon, and format it as a unix timestamp.</p>
+<pre class="language-js"><code class="language-js">eleventyConfig<span class="token punctuation">.</span><span class="token function">addFilter</span><span class="token punctuation">(</span><span class="token string">"bust"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>urlPart<span class="token punctuation">,</span> paramPart<span class="token punctuation">]</span> <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>paramPart <span class="token operator">||</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  params<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span> DateTime<span class="token punctuation">.</span><span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFormat</span><span class="token punctuation">(</span><span class="token string">"X"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>urlPart<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>params<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>I can then add this filter to my CSS in my base template.</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span><br>  <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><br>  <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{{ <span class="token punctuation">'</span>/css/index.css<span class="token punctuation">'</span> | url | bust }}<span class="token punctuation">"</span></span><br><span class="token punctuation">/></span></span></code></pre>
+<p>Which, at site build time, will append a query parameter with name <code>v</code> and<br>
+value of the current unix time in seconds. Which looks like this:</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/css/index.css?v=1604094309<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
+<p>Each time I deploy this site, the value is updated, forcing the browser to<br>
+fetch the CSS anew so I, and other visitors, always get the style that was<br>
+intended.</p>
 
   </article>
 
