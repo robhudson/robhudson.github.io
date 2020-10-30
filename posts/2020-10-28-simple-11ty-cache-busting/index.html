@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cogitations of Rob Hudson</title>
+    <title>Simple 11ty cache busting</title>
     <meta name="description" content="I am writing about my experiences as a software and web engineer.">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&display=fallback" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/index.css">
@@ -14,7 +14,7 @@
   <body class="lg:flex lg:flex-row">
 
     <!-- sidebar -->
-    <div class="lg:w-2/5 lg:min-h-screen bg-green-900 text-gray-300 bg-autumn">
+    <div class="lg:w-2/5 lg:min-h-screen bg-teal-800 text-gray-300 bg-circuit">
       <header class="sticky top-0">
         <div class="w-3/4 lg:w-3/5 max-w-screen-sm ml-auto mr-auto lg:mr-12 text-left">
           <ul class="font-bold text-sm">
@@ -25,13 +25,22 @@
             </li>
             <li class="inline">
               <a
-                class="inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800 no-underline px-2 "
+                class="inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800 no-underline bg-white text-gray-800 px-3 "
                 href="/posts/">Blog</a>
             </li>
           </ul>
           <div class="max-w-full mt-16 pb-4">
             
-  <h1>Page list</h1>
+  <p class="text-sm">
+    <time datetime="2020-10-28T00:00:00.000Z">October 28, 2020</time>
+  </p>
+  <h1>Simple 11ty cache&nbsp;busting</h1>
+  <div class="my-4">
+    <p>Tagged:</p>
+    <ul class="pl-4">
+    </ul>
+  </div>
+  <p class="text-sm">Reading time: 1 min</p>
 
           </div>
         </div>
@@ -42,91 +51,38 @@
     <main class="lg:w-3/5">
       <div class="max-w-screen-sm lg:ml-16 mr-auto ml-auto py-16 px-4 lg:px-0">
         
-  <table>
-    <thead>
-      <th>URL</th>
-      <th>Page Title</th>
-    </thead>
-    <tbody>
-    <tr>
-      <td><a href="/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/"><code>/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/</code></a></td>
-      <td>Using Celery&#39;s Canvas to Reduce Elasticsearch Index Time</td>
-    </tr>
-    <tr>
-      <td><a href="/posts/firstpost/"><code>/posts/firstpost/</code></a></td>
-      <td>This is my first post.</td>
-    </tr>
-    <tr>
-      <td><a href="/posts/secondpost/"><code>/posts/secondpost/</code></a></td>
-      <td>This is my second post.</td>
-    </tr>
-    <tr>
-      <td><a href="/posts/2001-01-01-markdown-test/"><code>/posts/2001-01-01-markdown-test/</code></a></td>
-      <td>Markdown Test Page</td>
-    </tr>
-    <tr>
-      <td><a href="/posts/2020-08-05-notes-on-new-ubuntu-installs/"><code>/posts/2020-08-05-notes-on-new-ubuntu-installs/</code></a></td>
-      <td>Notes on New Ubuntu Installs</td>
-    </tr>
-    <tr>
-      <td><a href="/posts/2020-10-28-simple-11ty-cache-busting/"><code>/posts/2020-10-28-simple-11ty-cache-busting/</code></a></td>
-      <td>Simple 11ty cache busting</td>
-    </tr>
-    <tr>
-      <td><a href="/about/"><code>/about/</code></a></td>
-      <td>About Me</td>
-    </tr>
-    <tr>
-      <td><a href="/posts/"><code>/posts/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/"><code>/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/elasticsearch/"><code>/tags/elasticsearch/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/python/"><code>/tags/python/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/celery/"><code>/tags/celery/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/linux/"><code>/tags/linux/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/ubuntu/"><code>/tags/ubuntu/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/number-2/"><code>/tags/number-2/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/markdown/"><code>/tags/markdown/</code></a></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a href="/tags/"><code>/tags/</code></a></td>
-      <td></td>
-    </tr>
-    </tbody>
-  </table>
+
+  <article class="prose">
+    <pre class="language-js"><code class="language-js">eleventyConfig<span class="token punctuation">.</span><span class="token function">addFilter</span><span class="token punctuation">(</span><span class="token string">"bust"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">url</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span><br>  <span class="token keyword">const</span> <span class="token punctuation">[</span>urlPart<span class="token punctuation">,</span> paramPart<span class="token punctuation">]</span> <span class="token operator">=</span> url<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URLSearchParams</span><span class="token punctuation">(</span>paramPart <span class="token operator">||</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  params<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token string">"v"</span><span class="token punctuation">,</span> DateTime<span class="token punctuation">.</span><span class="token function">local</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toFormat</span><span class="token punctuation">(</span><span class="token string">"X"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><br>  <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>urlPart<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">?</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>params<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span><br><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="language-html"><code class="language-html">  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/css/index.css?v=1604093214<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
+
+  </article>
+
 
       </div>
     </main>
 
     <!-- footer -->
-    <footer class="lg:w-2/5 lg:fixed lg:bottom-0 lg:left-0 bg-green-900 text-gray-300 lg:border-gray-300 lg:border-t-2">
+    <footer class="lg:w-2/5 lg:fixed lg:bottom-0 lg:left-0 bg-teal-800 text-gray-300 lg:border-gray-300 lg:border-t-2">
       <div class="py-8 px-4 lg:px-0">
         <div class="max-w-screen-sm lg:w-3/5 ml-auto lg:mr-16 mr-auto text-left">
           
+  <div class="mb-16 text-white font-bold flex justify-between lg:flex-wrap">
+      <div class="lg:w-full">
+        <span class="block text-white text-opacity-50 align-middle">
+          <!-- left arrow -->
+          <svg class="w-5 h-5 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 15l-3-3m0 0l3-3m-3 3h8M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+          </svg>
+          Previous Post
+        </span>
+        <a class="text-lg" href="/posts/2020-08-05-notes-on-new-ubuntu-installs/">
+          Notes on New Ubuntu&nbsp;Installs
+        </a>
+      </div>
+    
+  </div>
+
           <div class="">
             <div class="flex justify-between">
             

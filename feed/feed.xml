@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Cogitations of Rob Hudson</title>
-	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+	<subtitle>I am writing about my experiences as a software and web engineer.</subtitle>
 	
-	<link href="https://example.com/feed/feed.xml" rel="self"/>
-	<link href="https://example.com/"/>
-	<updated>2020-08-05T00:00:00+00:00</updated>
-	<id>https://example.com/</id>
+	<link href="https://rob.cogit8.org/feed/feed.xml" rel="self"/>
+	<link href="https://rob.cogit8.org/"/>
+	<updated>2020-10-28T00:00:00+00:00</updated>
+	<id>https://rob.cogit8.org/</id>
 	<author>
 		<name>Rob Hudson</name>
 		<email>rob@cogit8.org</email>
 	</author>
 	
 	<entry>
+		<title>Simple 11ty cache busting</title>
+		<link href="https://rob.cogit8.org/posts/2020-10-28-simple-11ty-cache-busting/"/>
+		<updated>2020-10-28T00:00:00+00:00</updated>
+		<id>https://rob.cogit8.org/posts/2020-10-28-simple-11ty-cache-busting/</id>
+		<content type="html">&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;eleventyConfig&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addFilter&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;bust&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;urlPart&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; paramPart&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;?&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; params &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;URLSearchParams&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;paramPart &lt;span class=&quot;token operator&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  params&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;v&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; DateTime&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;toFormat&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;X&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;urlPart&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;params&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;link&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;rel&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;stylesheet&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;href&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation attr-equals&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;/css/index.css?v=1604093214&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+</content>
+	</entry>
+	
+	<entry>
 		<title>Notes on New Ubuntu Installs</title>
-		<link href="https://example.com/posts/2020-08-05-notes-on-new-ubuntu-installs/"/>
+		<link href="https://rob.cogit8.org/posts/2020-08-05-notes-on-new-ubuntu-installs/"/>
 		<updated>2020-08-05T00:00:00+00:00</updated>
-		<id>https://example.com/posts/2020-08-05-notes-on-new-ubuntu-installs/</id>
+		<id>https://rob.cogit8.org/posts/2020-08-05-notes-on-new-ubuntu-installs/</id>
 		<content type="html">&lt;p&gt;These are some notes that help me set up a fresh development environment on Ubuntu, which includes setting up Docker, multiple Python environments, Firefox binary installs, etc.&lt;/p&gt;
 &lt;h2 id=&quot;updates&quot;&gt;Updates &lt;a class=&quot;header-anchor&quot; href=&quot;#updates&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
@@ -134,9 +144,9 @@ X-Desktop-File-Install-Version=0.24
 	
 	<entry>
 		<title>Markdown Test Page</title>
-		<link href="https://example.com/posts/2001-01-01-markdown-test/"/>
+		<link href="https://rob.cogit8.org/posts/2001-01-01-markdown-test/"/>
 		<updated>2019-06-16T00:00:00+00:00</updated>
-		<id>https://example.com/posts/2001-01-01-markdown-test/</id>
+		<id>https://rob.cogit8.org/posts/2001-01-01-markdown-test/</id>
 		<content type="html">&lt;p&gt;A sample page with the most common elements of an article, including headings, paragraphs, lists, and images.&lt;br&gt;
 Use it as a starting point for applying your own styles.&lt;/p&gt;
 &lt;!-- more --&gt;
@@ -297,27 +307,14 @@ Deserunt officia esse aliquip consectetur duis ut labore laborum commodo aliquip
 	</entry>
 	
 	<entry>
-		<title>This is my third post.</title>
-		<link href="https://example.com/posts/thirdpost/"/>
-		<updated>2018-08-24T00:00:00+00:00</updated>
-		<id>https://example.com/posts/thirdpost/</id>
-		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
-&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// this is a command&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;myCommand&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;br&gt;	&lt;span class=&quot;token keyword&quot;&gt;let&lt;/span&gt; counter &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;br&gt;	counter&lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;br&gt;&lt;br&gt;&lt;span class=&quot;token comment&quot;&gt;// Test with a line break above this line.&lt;/span&gt;&lt;br&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&#39;Test&#39;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
-&lt;h2 id=&quot;section-header&quot;&gt;Section Header &lt;a class=&quot;header-anchor&quot; href=&quot;#section-header&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
-</content>
-	</entry>
-	
-	<entry>
 		<title>This is my second post.</title>
-		<link href="https://example.com/posts/secondpost/"/>
+		<link href="https://rob.cogit8.org/posts/secondpost/"/>
 		<updated>2018-07-04T00:00:00+00:00</updated>
-		<id>https://example.com/posts/secondpost/</id>
+		<id>https://rob.cogit8.org/posts/secondpost/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header &lt;a class=&quot;header-anchor&quot; href=&quot;#section-header&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;https://example.com/posts/firstpost/&quot;&gt;First post&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;https://example.com/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://rob.cogit8.org/posts/firstpost/&quot;&gt;First post&lt;/a&gt;&lt;br&gt;
+&lt;a href=&quot;https://rob.cogit8.org/posts/thirdpost/&quot;&gt;Third post&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;p&gt;Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.&lt;/p&gt;
 </content>
@@ -325,9 +322,9 @@ Deserunt officia esse aliquip consectetur duis ut labore laborum commodo aliquip
 	
 	<entry>
 		<title>This is my first post.</title>
-		<link href="https://example.com/posts/firstpost/"/>
+		<link href="https://rob.cogit8.org/posts/firstpost/"/>
 		<updated>2018-05-01T00:00:00+00:00</updated>
-		<id>https://example.com/posts/firstpost/</id>
+		<id>https://rob.cogit8.org/posts/firstpost/</id>
 		<content type="html">&lt;p&gt;Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.&lt;/p&gt;
 &lt;p&gt;Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.&lt;/p&gt;
 &lt;h2 id=&quot;section-header&quot;&gt;Section Header &lt;a class=&quot;header-anchor&quot; href=&quot;#section-header&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
@@ -346,9 +343,9 @@ console.log(&#39;Test&#39;);
 	
 	<entry>
 		<title>Using Celery&#39;s Canvas to Reduce Elasticsearch Index Time</title>
-		<link href="https://example.com/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/"/>
+		<link href="https://rob.cogit8.org/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/"/>
 		<updated>2014-11-27T00:00:00+00:00</updated>
-		<id>https://example.com/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/</id>
+		<id>https://rob.cogit8.org/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/</id>
 		<content type="html">&lt;p&gt;We use &lt;a href=&quot;http://www.elasticsearch.org/&quot;&gt;Elasticsearch&lt;/a&gt; for our backend search on the &lt;a href=&quot;https://marketplace.firefox.com/&quot;&gt;Firefox Marketplace&lt;/a&gt;. Most of the Marketplace APIs that drive the front-end only query Elasticsearch and never hit the database. Because of this we have a few ways that we keep our Elasticsearch index in sync with our database as changes happen. One of those ways is a complete reindex of all database records into Elasticsearch.&lt;/p&gt;
 &lt;p&gt;We don’t do a full reindex often but when we do we have a few ways to minimize the impact on the Marketplace. The main way is to use index aliases which allows us to create a brand new search index, push all of our data into it, and when it is finished we point the alias to this new index.&lt;/p&gt;
 &lt;p&gt;When the Marketplace was first starting a full reindex would take minutes. As time progressed and more fields were added to our documents and more apps were added a full reindex was starting to take up to 40 minutes. So we started investigating ways to speed this up again.&lt;/p&gt;

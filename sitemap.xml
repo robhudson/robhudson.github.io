@@ -2,72 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://example.com/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/</loc>
+    <loc>https://rob.cogit8.org/posts/2014-11-27-using-celerys-canvas-to-reduce-elasticsearch-index-time/</loc>
     <lastmod>2014-11-27T00:00:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/firstpost/</loc>
+    <loc>https://rob.cogit8.org/posts/firstpost/</loc>
     <lastmod>2018-05-01T00:00:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/secondpost/</loc>
+    <loc>https://rob.cogit8.org/posts/secondpost/</loc>
     <lastmod>2018-07-04T00:00:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/thirdpost/</loc>
-    <lastmod>2018-08-24T00:00:00.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://example.com/posts/2001-01-01-markdown-test/</loc>
+    <loc>https://rob.cogit8.org/posts/2001-01-01-markdown-test/</loc>
     <lastmod>2019-06-16T00:00:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/2020-08-05-notes-on-new-ubuntu-installs/</loc>
+    <loc>https://rob.cogit8.org/posts/2020-08-05-notes-on-new-ubuntu-installs/</loc>
     <lastmod>2020-08-05T00:00:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/about/</loc>
-    <lastmod>2020-10-28T00:35:48.970Z</lastmod>
+    <loc>https://rob.cogit8.org/posts/2020-10-28-simple-11ty-cache-busting/</loc>
+    <lastmod>2020-10-28T00:00:00.000Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/</loc>
-    <lastmod>2020-10-28T00:35:48.970Z</lastmod>
+    <loc>https://rob.cogit8.org/about/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
-    <lastmod>2020-10-28T00:35:48.970Z</lastmod>
+    <loc>https://rob.cogit8.org/posts/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/page-list/</loc>
-    <lastmod>2020-10-28T00:35:48.970Z</lastmod>
+    <loc>https://rob.cogit8.org/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
-    <lastmod>2020-10-28T00:35:48.974Z</lastmod>
+    <loc>https://rob.cogit8.org/page-list/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/another-tag/</loc>
-    <lastmod>2020-10-28T00:35:48.974Z</lastmod>
+    <loc>https://rob.cogit8.org/tags/elasticsearch/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/number-2/</loc>
-    <lastmod>2020-10-28T00:35:48.974Z</lastmod>
+    <loc>https://rob.cogit8.org/tags/python/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/tags/second-tag/</loc>
-    <lastmod>2020-10-28T00:35:48.974Z</lastmod>
+    <loc>https://rob.cogit8.org/tags/celery/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rob.cogit8.org/tags/linux/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rob.cogit8.org/tags/ubuntu/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rob.cogit8.org/tags/number-2/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rob.cogit8.org/tags/markdown/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://rob.cogit8.org/tags/</loc>
+    <lastmod>2020-10-30T21:26:34.944Z</lastmod>
   </url>
 </urlset>
