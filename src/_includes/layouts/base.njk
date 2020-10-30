@@ -18,24 +18,22 @@
       <header class="sticky top-0">
         <div class="w-3/4 lg:w-3/5 max-w-screen-sm ml-auto mr-auto lg:mr-12 text-left">
           <ul class="font-bold text-sm">
-            {%- set linkClass = 'inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800 no-underline' %}
             <li class="inline">
               <a
-                class="{{ linkClass }}{% if page.url == '/' %} bg-white text-gray-800 px-3 {% else %} px-2 {% endif %}"
+                class="inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800 no-underline{% if page.url == '/' %} bg-white text-gray-800 px-3 {% else %} px-2 {% endif %}"
                 href="{{ '/' | url }}">Home</a>
             </li>
             <li class="inline">
               <a
-                class="{{ linkClass }}{% if '/posts/' in page.url %} bg-white text-gray-800 px-3 {% else %} px-2 {% endif %}"
+                class="inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800 no-underline{% if '/posts/' in page.url %} bg-white text-gray-800 px-3 {% else %} px-2 {% endif %}"
                 href="{{ '/posts/' | url }}">Blog</a>
             </li>
           </ul>
           <div class="max-w-full mt-16 pb-4">
             {% block sidebar %}
               <h1>
-                <a href="{{ '/' | url }}">{{ metadata.title | widont | safe }}</a>
+                <a class="no-underline" href="{{ '/' | url }}">{{ metadata.title | widont | safe }}</a>
               </h1>
-              <span class="text-sm">by {{ metadata.author.name }}</span>
             {% endblock %}
           </div>
         </div>
