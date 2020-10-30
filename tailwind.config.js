@@ -28,6 +28,15 @@ module.exports = {
           extensions: ["md"],
         },
       ],
+      whitelist: [
+        "bg-green-900",
+        "bg-teal-800",
+        "bg-blue-800",
+        "bg-circuit",
+        "bg-signal",
+        "bg-autumn",
+        "bg-clouds",
+      ],
     },
   },
   theme: {
