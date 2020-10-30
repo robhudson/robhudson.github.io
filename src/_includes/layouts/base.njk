@@ -6,7 +6,7 @@
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&display=fallback" rel="stylesheet"> 
-    <link rel="stylesheet" href="{{ '/css/index.css' | url | bust }}">
+    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
     <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
@@ -18,7 +18,7 @@
       <header class="sticky top-0">
         <div class="w-3/4 lg:w-3/5 max-w-screen-sm ml-auto mr-auto lg:mr-12 text-left">
           <ul class="font-bold text-sm">
-            {%- set linkClass = 'inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800' %}
+            {%- set linkClass = 'inline-block pt-16 pb-1 hover:bg-gray-500 hover:text-gray-800 no-underline' %}
             <li class="inline">
               <a
                 class="{{ linkClass }}{% if page.url == '/' %} bg-white text-gray-800 px-3 {% else %} px-2 {% endif %}"

@@ -1,28 +1,17 @@
 ---
-pagination:
-  data: collections
-  size: 1
-  alias: tag
-  filter:
-    - all
-    - nav
-    - post
-    - posts
-    - tagList
-  addAllPagesToCollections: true
-eleventyComputed:
-  title: Tagged “{{ tag }}”
-permalink: /tags/{{ tag }}/
+permalink: /tags/
 ---
 {% extends 'layouts/base.njk' %}
 
 {% block sidebar %}
-  <h1>{{ title | widont | safe }}</h1>
+  <h1>List of all tags</h1>
 {% endblock %}
 
 {% block content %}
-  {% set postslist = collections[ tag ] %}
-  {% include "postslist.njk" %}
-
-  <p>See <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+  <ul class="list-disc">
+    {% for tag in collections.tagList | sort %}
+      {% set tagUrl %}/tags/{{ tag }}/{% endset %}
+      <li><a href="{{ tagUrl | url }}">{{ tag }}</a> ({{ collections[tag] | length }})</li>
+    {% endfor %}
+  </ul>
 {% endblock %}

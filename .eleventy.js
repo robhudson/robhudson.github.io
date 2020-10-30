@@ -41,7 +41,23 @@ module.exports = function (eleventyConfig) {
     return str;
   });
 
-  eleventyConfig.addCollection("tagList", function (collection) {
+  eleventyConfig.addFilter("bust", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", DateTime.local().toFormat("X"));
+    return `${urlPart}?${params}`;
+  });
+
+  eleventyConfig.addFilter("pluralize", (n, singular="", plural="s") => {
+    /*
+     * Usage:
+     *  - Using default args: item{{ num | pluralize }}
+     *  - Customizing args: cand{{ num | pluralize("y", "ies") }}
+     */
+    return (n === 1) ? singular : plural;
+  })
+
+  eleventyConfig.addCollection("tagList", (collection) => {
     let tagSet = new Set();
     collection.getAll().forEach(function (item) {
       if ("tags" in item.data) {
@@ -66,18 +82,9 @@ module.exports = function (eleventyConfig) {
       }
     });
 
-    // returning an array in addCollection works in Eleventy 0.5.3
     return [...tagSet];
   });
-
-  eleventyConfig.addFilter("bust", (url) => {
-    const [urlPart, paramPart] = url.split("?");
-    const params = new URLSearchParams(paramPart || "");
-    params.set("v", DateTime.local().toFormat("X"));
-    return `${urlPart}?${params}`;
-  });
-
-  eleventyConfig.addPassthroughCopy("src/css");
+  //eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("CNAME");
 
   /* Markdown Overrides */

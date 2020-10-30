@@ -9,6 +9,9 @@ h2 {
 h3 {
   @apply text-xl font-bold;
 }
+a {
+  @apply underline;
+}
 
 /*
   Patterns from http://www.heropatterns.com/

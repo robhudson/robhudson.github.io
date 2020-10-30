@@ -1,6 +1,10 @@
 ---
 title:  "Using Celery's Canvas to Reduce Elasticsearch Index Time"
 date:   2014-11-27
+tags:
+  - elasticsearch
+  - python
+  - celery
 ---
 
 We use [Elasticsearch](http://www.elasticsearch.org/) for our backend search on the [Firefox Marketplace](https://marketplace.firefox.com/). Most of the Marketplace APIs that drive the front-end only query Elasticsearch and never hit the database. Because of this we have a few ways that we keep our Elasticsearch index in sync with our database as changes happen. One of those ways is a complete reindex of all database records into Elasticsearch. 

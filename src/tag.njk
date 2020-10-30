@@ -1,0 +1,29 @@
+---
+pagination:
+  data: collections
+  size: 1
+  alias: tag
+  filter:
+    - all
+    - nav
+    - post
+    - posts
+    - tagList
+  addAllPagesToCollections: true
+permalink: /tags/{{ tag }}/
+---
+{% extends 'layouts/base.njk' %}
+
+{% set postslist = collections[tag] %}
+{% set n = postslist.length %}
+
+{% block sidebar %}
+  <p>Blog posts tagged:</p>
+  <h1>#{{ tag }}</h1>
+  <p>There {{ n | pluralize('is', 'are') }} {{ n }} item{{ n | pluralize }} tagged #{{ tag }}.</p>
+  <p>Or view <a href="{{ '/tags/' | url }}">all tags</a>.</p>
+{% endblock %}
+
+{% block content %}
+  {% include "postslist.njk" %}
+{% endblock %}

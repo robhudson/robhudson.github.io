@@ -5,5 +5,4 @@ future:
 * Flesh out the home page with fuller content
 * Add personal logo
 * Consider github comments on posts
-* Style /tags pages
 * generate 404.html from layout templates?
