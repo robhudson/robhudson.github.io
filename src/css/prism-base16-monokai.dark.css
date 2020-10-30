@@ -1,29 +1,6 @@
 code[class*="language-"], pre[class*="language-"] {
-	font-size: 14px;
-	line-height: 1.375;
-	direction: ltr;
-	text-align: left;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	-moz-tab-size: 2;
-	-o-tab-size: 2;
-	tab-size: 2;
-	-webkit-hyphens: none;
-	-moz-hyphens: none;
-	-ms-hyphens: none;
-	hyphens: none;
-	background: #272822;
 	color: #f8f8f2;
-}
-pre[class*="language-"] {
-	padding: 1.5em 0;
-	margin: .5em 0;
-	overflow: auto;
-}
-:not(pre) > code[class*="language-"] {
-	padding: .1em;
-	border-radius: .3em;
+	background: #272822;
 }
 .token.comment, .token.prolog, .token.doctype, .token.cdata {
 	color: #75715e;
@@ -82,8 +59,4 @@ pre[class*="language-"] {
 }
 .token.entity {
 	cursor: help;
-}
-pre > code.highlight {
-	outline: 0.4em solid #f92672;
-	outline-offset: .4em;
 }

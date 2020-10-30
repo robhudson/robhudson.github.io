@@ -84,7 +84,9 @@ module.exports = function (eleventyConfig) {
 
     return [...tagSet];
   });
-  //eleventyConfig.addPassthroughCopy("src/css");
+
+  // src/css/index.css gets processed by postcss, don't include it here.
+  eleventyConfig.addPassthroughCopy("src/css/prism-base16-monokai.dark.css");
   eleventyConfig.addPassthroughCopy("CNAME");
 
   /* Markdown Overrides */
