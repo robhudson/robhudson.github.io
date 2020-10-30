@@ -7,7 +7,7 @@
     <meta name="description" content="I am writing about my experiences as a software and web engineer.">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@800&display=fallback" rel="stylesheet"> 
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css?v=1604097658">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Cogitations of Rob Hudson">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Cogitations of Rob Hudson">
   </head>
@@ -55,7 +55,7 @@
       <div class="max-w-screen-sm lg:ml-16 mr-auto ml-auto py-16 px-4 lg:px-0">
         
 
-  <article class="prose">
+  <article class="prose max-w-none">
     <p>We use <a href="http://www.elasticsearch.org/">Elasticsearch</a> for our backend search on the <a href="https://marketplace.firefox.com/">Firefox Marketplace</a>. Most of the Marketplace APIs that drive the front-end only query Elasticsearch and never hit the database. Because of this we have a few ways that we keep our Elasticsearch index in sync with our database as changes happen. One of those ways is a complete reindex of all database records into Elasticsearch.</p>
 <p>We don’t do a full reindex often but when we do we have a few ways to minimize the impact on the Marketplace. The main way is to use index aliases which allows us to create a brand new search index, push all of our data into it, and when it is finished we point the alias to this new index.</p>
 <p>When the Marketplace was first starting a full reindex would take minutes. As time progressed and more fields were added to our documents and more apps were added a full reindex was starting to take up to 40 minutes. So we started investigating ways to speed this up again.</p>
