@@ -1,7 +1,6 @@
 ---
 title: Markdown Test Page
 date: 2019-06-16
-layout: layouts/post.njk
 ---
 
 A sample page with the most common elements of an article, including headings, paragraphs, lists, and images.

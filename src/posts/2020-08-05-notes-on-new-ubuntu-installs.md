@@ -1,7 +1,6 @@
 ---
 title: Notes on New Ubuntu Installs
 date: 2020-08-05
-layout: layouts/post.njk
 ---
 
 These are some notes that help me set up a fresh development environment on Ubuntu, which includes setting up Docker, multiple Python environments, Firefox binary installs, etc.
