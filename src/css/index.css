@@ -32,4 +32,9 @@ a {
 }
 
 @tailwind components;
+
+prose a.header-anchor {
+  @apply text-gray-500 no-underline;
+}
+
 @tailwind utilities;
