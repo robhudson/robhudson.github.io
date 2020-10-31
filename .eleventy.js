@@ -3,8 +3,7 @@ const fs = require("fs");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const readingTime = require('eleventy-plugin-reading-time');
-const markdownIt = require("markdown-it");
-const markdownItAnchor = require("markdown-it-anchor");
+const { mdLib } = require("./markdown");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
@@ -89,16 +88,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css/prism-base16-monokai.dark.css");
   eleventyConfig.addPassthroughCopy("CNAME");
 
-  /* Markdown Overrides */
-  let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true,
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkSymbol: "#",
-  });
-  eleventyConfig.setLibrary("md", markdownLibrary);
+  eleventyConfig.setLibrary("md", mdLib);
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({
