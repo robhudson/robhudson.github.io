@@ -126,6 +126,26 @@ intended.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2 id=&quot;set-up-nvm&quot;&gt;Set up nvm &lt;a class=&quot;header-anchor&quot; href=&quot;#set-up-nvm&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Follow the install process at &lt;a href=&quot;https://github.com/nvm-sh/nvm&quot;&gt;https://github.com/nvm-sh/nvm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Ensure these are in the &lt;code&gt;~/.zshrc&lt;/code&gt;:
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;export NVM_DIR=&amp;quot;$HOME/.nvm&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[ -s &amp;quot;$NVM_DIR/nvm.sh&amp;quot; ] &amp;amp;&amp;amp; \. &amp;quot;$NVM_DIR/nvm.sh&amp;quot;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Install the Node LTS version
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nvm install --lts&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Make sure latest &lt;code&gt;npm&lt;/code&gt; is installed
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;nvm install-latest-npm&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h2 id=&quot;set-up-firefox&quot;&gt;Set up Firefox &lt;a class=&quot;header-anchor&quot; href=&quot;#set-up-firefox&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;I prefer to set up Firefox from the binaries instead of via Ubuntu packages. For one, I can install multiple (Release vs Nightly), for another, the packaged Firefox makes minor changes to the actual released Firefox and I prefer the actual releases.&lt;/p&gt;
 &lt;ol&gt;
