@@ -56,6 +56,17 @@ These are some notes that help me set up a fresh development environment on Ubun
     * `pipx install docutils`
     * `pipx install sphinx`
 
+## Set up nvm
+
+1. Follow the install process at https://github.com/nvm-sh/nvm
+1. Ensure these are in the `~/.zshrc`:
+   * `export NVM_DIR="$HOME/.nvm"`
+   * `[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"` 
+1. Install the Node LTS version
+   * `nvm install --lts`
+1. Make sure latest `npm` is installed
+   * `nvm install-latest-npm`
+
 ## Set up Firefox
 
 I prefer to set up Firefox from the binaries instead of via Ubuntu packages. For one, I can install multiple (Release vs Nightly), for another, the packaged Firefox makes minor changes to the actual released Firefox and I prefer the actual releases.
