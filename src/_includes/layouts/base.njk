@@ -57,7 +57,7 @@
           <div class="">
             <div class="flex justify-between">
             {% for social in metadata.social %}
-              <a class="items-center" href="{{ social.href }}">
+              <a class="items-center no-underline" href="{{ social.href }}">
                 {{ social.icon | safe }}
                 <span>{{ social.name }}</span>
               </a>
