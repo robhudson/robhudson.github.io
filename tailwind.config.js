@@ -1,3 +1,5 @@
+const { trueGray } = require("tailwindcss/colors");
+const colors = require("tailwindcss/colors");
 const { mdLib } = require("./markdown");
 
 const purgeMarkdown = (content) => {
@@ -14,12 +16,7 @@ const purgeMarkdown = (content) => {
 };
 
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
   purge: {
-    mode: "all",
     content: ["./src/**/*.{njk,md}"],
     options: {
       extractors: [
@@ -28,7 +25,7 @@ module.exports = {
           extensions: ["md"],
         },
       ],
-      whitelist: [
+      safelist: [
         "bg-green-900",
         "bg-teal-800",
         "bg-blue-800",
@@ -40,6 +37,15 @@ module.exports = {
     },
   },
   theme: {
+    colors: {
+      black: colors.black,
+      white: colors.white,
+      gray: colors.trueGray,
+      green: colors.green,
+      teal: colors.teal,
+      blue: colors.blue,
+      indigo: colors.indigo,
+    },
     extend: {
       fontFamily: {
         heading: ["Fira Sans", "sans-serif"],
