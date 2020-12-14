@@ -180,6 +180,12 @@ X-Desktop-File-Install-Version=0.24
 &lt;li&gt;
 &lt;p&gt;On launch set up profiles for each.&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set the default browser by running the command&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;xdg-settings set default-web-browser firefox-nightly.desktop&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&quot;install-various-apps-via-ubuntu-software&quot;&gt;Install various apps via Ubuntu Software &lt;a class=&quot;header-anchor&quot; href=&quot;#install-various-apps-via-ubuntu-software&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
