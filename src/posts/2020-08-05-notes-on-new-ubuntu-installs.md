@@ -93,6 +93,8 @@ I prefer to set up Firefox from the binaries instead of via Ubuntu packages. For
 
 1. Do the same for nightly changing the above as needed.
 1. On launch set up profiles for each.
+1. Set the default browser by running the command
+    * `xdg-settings set default-web-browser firefox-nightly.desktop`
 
 ## Install various apps via Ubuntu Software
 
